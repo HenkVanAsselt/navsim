@@ -1,0 +1,18 @@
+@echo off
+
+: ----- Add 4dos Description file to arj file
+attrib -h descript.ion
+arj u navsim.arj !arjfiles.lst
+attrib +h descript.ion
+
+: ----- Add given files to arj file
+arj u navsim.arj !arjfiles
+
+SET Choise=N
+INKEY /W20 Backup to floppy (Y/N): %%Choise
+IF "%choise" != "Y" goto end
+
+copy navsim.arj a:
+copy install.btm a:
+
+:end

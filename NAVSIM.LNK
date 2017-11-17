@@ -1,0 +1,9 @@
+navsim.obj menu.obj util.obj getpos.obj calc.obj utmcon.obj +
+init.obj disp.obj keys.obj filio.obj nr53.obj trispond.obj art.obj +
+art4.obj polar.obj ucm40.obj deso25.obj pulse8.obj trimble.obj +
+microfix.obj hyperfix.obj syledis.obj radarfix.obj nmea.obj +
+echotrac.obj decca.obj falcon.obj stations.obj profile.obj
+navsim.exe /CO /M /SE:200 /ST:20000
+navsim.map
+window.lib serial9.lib hva_util.lib
+nul.def

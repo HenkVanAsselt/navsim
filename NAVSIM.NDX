@@ -1,0 +1,112 @@
+navsim
+23
+general_info
+23
+Overview
+828
+simulate menu
+1856
+Start
+2342
+equipment menu
+2550
+System
+2920
+spheroid menu
+3404
+spheroid
+3404
+projection menu
+3792
+grid 
+3792
+projection
+3792
+ship menu
+4320
+ship
+4320
+stations menu
+4750
+stations
+4750
+profile menu
+6012
+profile
+6012
+Edit survey lines
+6458
+Edit depths
+7338
+special keys
+8187
+Print params
+9205
+OS shell
+9679
+sim_quit
+10018
+Quit
+10018
+sys_sys
+10818
+patterns
+11735
+MICRO-FIX
+12463
+Micro-Fix
+12463
+Trisponder
+12806
+Hyper-Fix
+13057
+Echotrac
+13543
+Polartrack
+14180
+Navitrack 2000
+14180
+Artemis
+14717
+Syledis
+15093
+Falcon
+16149
+NMEA_0183
+16451
+Decca
+16451
+NR_53_103
+17063
+Radar-Fix
+17398
+Pulse8
+17613
+UCM_40
+17904
+Trimble
+17989
+TRIMBLE
+17989
+Deso 25
+18058
+Deso_25
+18058
+printer
+18348
+Mode
+18536
+baudrate
+18668
+databits
+18891
+stopbits
+19033
+parity
+19173
+handshake
+19336
+channel
+19611
+end_of_file
+19988

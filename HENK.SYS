@@ -1,0 +1,21 @@
+XSYSTEM         00 02 01  9600 8 N 1 0 0.25
+XPATTERN        00  1  0  0  0  0  0  0  0 
+SHIP_X          577291.264880
+SHIP_LON        4.125594
+SHIP_Y          5760714.000000
+SHIP_LAT        51.990630
+SHIP_H          0.000000
+SPEED           5.000000
+HEADING         90.000000
+HELM            0.000000
+VERTICAL        1.000000
+SPH_NAME        International ED 1950
+SPH_A           6378388.000000
+SPH_E2             0.0067226700
+GRID_NAME       Local
+GRID_E0         500000.000000
+GRID_N0         0.000000
+GRID_K0         0.999600
+GRID_LAT0       0.000000
+GRID_LON0       3.000000
+CHAIN           thames

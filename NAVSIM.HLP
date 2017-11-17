@@ -1,0 +1,666 @@
+:navsim :general_info
+^GENERAL INFORMATION
+
+                    ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+                    ³                          ³
+                    ³   NAVIGATION SIMULATOR   ³
+                    ³                          ³
+                    ³  (c) H.B.J. van Asselt   ³
+                    ³      21 FEB 1992 V3.2    ³
+                    ³                          ³
+                    ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+
+
+                         ~Overview        ~
+
+                         ~simulate menu   ~
+                         ~equipment menu  ~
+                         ~spheroid menu   ~
+                         ~projection menu ~
+                         ~ship menu       ~
+                         ~stations menu   ~
+                         ~profile menu    ~
+
+
+:Overview
+
+  This programm has been written to test navigation computers and related
+  interface by generation meanfull data. This program generates serial
+  output of a number of navsigation systems as if the are onboard a sailing
+  vessel.
+
+  As from version 3.0 this programm is able to generate serial output on
+  as much a 9 serial channels. This has been done to be able to test
+  NeSA's PDS-1000 survey and dredge programm.
+
+  The programm can be manipulated by a pulldown menu. At the programm start
+  only the headers are visible. The enviroment is much like Borland's Turbo-C
+  and Turbo-Pascal compilers: e.g. a pulldown menu will be activated by
+  the ALTERNATE key and a highlighted character of the pulldown menu.
+
+  If a pulldown menu is activated, a choise can be made by useing the UP- and
+  down array keys, followd by a <RETURN> or by selecting the highlighted
+  character of a option. Hereby parameters may be changed or another action
+  like showing a popup menu will be taken.
+
+
+:simulate menu
+
+   Simulate
+  ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+  ³ ~Start       ~    ³ -->  Start the simulation
+  ³ ~Print params~    ³ -->  Make hardcopy of parameters on a printer
+  ³ ~OS shell    ~    ³ -->  Exit temporarily to the shell (COMMAND.COM).
+  ³ ~Mode        ~    ³ -->  Toggle screen mode COLOR/MONO
+  ³ ~Quit        ~    ³ -->  Exit the navigation program. The default
+  ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ      files 'work.sys' and 'work.chn' will be
+                            updated.
+
+:Start
+^START SIMULATION
+
+  The simulation will be started
+
+  Before actual start of simulation, all event counters will be reset at 0,
+  and the station codes / patterns will be validated.
+
+:equipment menu
+
+    Equipment
+   ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+   ³~System~    WORK.SYS³  -->  Change navigation system and their parameters
+   ³ Load               ³  -->  Load a file with system parameters
+   ³ Save               ³  -->  Save system parameters in file named above
+   ³ Save As            ³  -->  Save system parameters new file
+   ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+
+:System
+^SYSTEM
+
+   Implemented systems are:
+   ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+   ³  ~Trisponder~  ³
+   ³  ~Artemis   ~  ³
+   ³  ~Micro-Fix ~  ³
+   ³  ~Hyper-Fix ~  ³
+   ³  ~Decca     ~  ³
+   ³  ~Syledis   ~  ³
+   ³  ~Polartrack~  ³
+   ³  ~Falcon    ~  ³
+   ³  ~UCM_40    ~  ³
+   ³  ~Echotrac  ~  ³
+   ³  ~NMEA_0183 ~  ³
+   ³  ~NR_53_103 ~  ³
+   ³  ~Deso_25   ~  ³
+   ³  ~Radar-Fix ~  ³
+   ³  ~Pulse8    ~  ³
+   ³  ~TRIMBLE   ~  ³
+   ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+
+
+:spheroid menu :spheroid
+
+    Spheroid
+   ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+   ³Name                International ED 1950³  --> Popup predefined speroids
+   ³Semi major axis     6378388.000          ³  --> Semi major axis (editable)
+   ³Excentricity^2      0.006722670          ³  --> Excentricity^2 (editable)
+   ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+
+:projection menu :grid :projection
+
+    Projection
+   ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+   ³Name          utm_zo31.prj³ --> Popup predefined projections
+   ³False East    500000      ³ --> False Easting of grid (meters)
+   ³False North   0           ³ --> False Northing of grid (meters)
+   ³Scale Factor  0.99960     ³ --> Scalefactor on centrale meridiaan
+   ³Lon Org.      3           ³ --> Longitude of origin of grid (degrees)
+   ³Lat Org.      0           ³ --> Lattitude of origin of grid (degrees)
+   ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+
+:ship menu :ship
+
+    Ship
+   ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+   ³X         579266.58³ --> Ships X coordinate or longitude
+   ³Y        5755340.58³ --> Ships Y coordinate or lattitude
+   ³Z        0.0       ³ --> Ships Z coordinate (height)
+   ³Speed    7.0       ³ --> Ships speed (m/s)
+   ³Heading  90.0      ³ --> Ships heading (degrees)
+   ³Helm     0.0       ³ --> Rudder (degrees/second)
+   ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+
+:stations menu :stations
+^STATIONS
+
+   With this menu we can manipulate the data of a station chain
+
+   ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+   ³Stations  WORK.CHN³  ---> Edit stations of chain 'WORK'
+   ³Load              ³  ---> Load chain from disk
+   ³Save              ³  ---> Save chain with same name
+   ³Save As           ³  ---> Save chain with new name
+   ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+
+   If the edit menu is choosen we will see a pop-up menu like:
+
+   ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+   ³Deal               1  388254.06  5670004.27    0.00    0.00³
+   ³Pakefield          2  413865.59  5811444.80    0.00    0.00³
+   ³Texel              3  618383.20  5873936.01    0.00    0.00³
+   ³Renesse            4  551173.93  5731889.84    0.00    0.00³
+   ³Deal               5  388503.74  5671146.07    0.00    0.00³
+   ³                   0       0.00        0.00    0.00    0.00³
+   ³                   0       0.00        0.00    0.00    0.00³
+   ³                   0       0.00        0.00    0.00    0.00³
+   ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+
+  By advancing the cursor to the desired station and pressing <ENTER>
+  the code, coordinates and C-O of a station in this chain can be
+  changed.
+
+:profile menu :profile
+^PROFILES
+
+  With this menu we can manipulate the data of a set of survey lines
+  and the profile of them
+
+  ÚÄÄÄÄÄÄÄÄÄÄÄÄ¿
+  ³Profile  OFF³  ---> Toggle survey line simulation ON/OFF
+  ³Load        ³  ---> Load a set of survey lines and profiles from disk
+  ³Save        ³  ---> Save data with same name
+  ³Save As     ³  ---> Save data with new name
+  ³Edit        ³  ---> ~Edit survey lines~
+  ÀÄÄÄÄÄÄÄÄÄÄÄÄÙ
+
+:Edit survey lines
+
+  If we choose to edit a set of survey lines, we will see the following
+  pop-up menu:
+
+  ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+  ³Start X    578363.71 ³ Start X of the first line
+  ³Start Y    5760714.00³ Start Y of the first line
+  ³End   X    578463.71 ³ End X of the first line
+  ³End   Y    5760714.00³ End Y of the first line
+  ³Length     100.00    ³ Length of the lines
+  ³Direction  90.00     ³ Direction of the profile lines
+  ³Dx         0.00      ³ Spacing in X direction
+  ³Dy         25.00     ³ Spacing in Y direction
+  ³No. lines   4        ³ Number of lines of the profile
+  ³Depths               ³ ~Edit depths~
+  ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+
+   If the coordinates of the set of lines are edited, the length and
+   direction will be recalculated. If the length or direction are
+   edited, the end-coordinates of the line will be recalculated.
+
+:Edit depths
+^EDIT DEPTHS
+
+  Here the user can define the profile of a set of survey lines.
+  The depths are from the start of the line. During a simulation,
+  the depths between the given points will be lineair interpolated.
+
+  ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+  ³point  1 - 0.00     -     0.00³
+  ³point  2 - 25.00    -     1.00³
+  ³point  3 - 50.00    -     2.00³
+  ³point  4 - 75.00    -     3.00³
+  ³point  5 - 100.00   -     4.00³
+  ³point  6 - 125.00   -     0.00³
+  ³point  7 - 150.00   -     1.00³
+  ³point  8 - 175.00   -     2.00³
+  ³point  9 - 200.00   -     3.00³
+  ³point 10 - 225.00   -     4.00³
+  ³point 11 - 250.00   -     0.00³
+  ³point 12 - 275.00   -     1.00³
+  ³point 13 - 300.00   -     2.00³
+  ³point 14 - 325.00   -     3.00³
+  ³point 15 - 350.00   -     4.00³
+  ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+
+:special keys
+^SPECIAL KEYS
+
+  During the simulation a number of parameters can be changed by a single
+  key stroke:
+
+  <cursor up>             : increase speed
+  <cursor down>           : decrease speed
+  <cursor left>           : decrease rudder
+  <cursor right>          : increase rudder
+  <CTRL> + <cursor left>  : decrease heading
+  <CTRL> + <cursor right> : increase heading
+
+  F1  : Help
+  ESC : stop simulation
+  l   : toggle between UTM mode en lat/long mode
+
+       + ---> UTM ---> lat/long (dd mm.mmm) ---> lat/long (dd mm ss.ss) ---+
+       |                                                                   |
+       +-------------------------<-----------------------------------------+
+
+  p   : toggle output to printer
+
+  1..8: Put simulator in command mode for system 1..8:
+        For some systems special function keys are in use. This way
+        double assigned keys will not interfere. The special keys
+        will be explained at the selected system by using 'F1'.
+
+:Print params
+^PRINT PARAMETERS
+
+  With this item, the parameters of the simulation will be send to the
+  parallel printer. If no printer is connected, or a communication error
+  is deteced, the user will be informed about the printer error.
+
+  Printed parameters are:
+
+  - System parameters of each system in use:
+    name, format, serial parameters, patterns, frequencies
+  - Spheroide en grid data.
+  - Station data (name, code, X- and Y-coordinates, height).
+
+:OS shell
+^OS (Operating System) SHELL
+
+  The user can temporarily go to the DOS operationg system by this item.
+  The navigation programm will still be in memory.
+
+  The shell can be terminated by using the 'EXIT' command at the
+  DOS prompt.
+
+  N.B.
+  The shell called is defined by the 'COMSPEC' enviroment variable.
+
+:sim_quit :Quit
+^QUIT
+
+  The simulation programm will be terminated after updating the
+  system files 'work.sys' with system parameters and 'work.chn'
+  with chain data.
+
+  The programm can also be terminated by pressing a number of times
+  'ESC' from each point in the programm.
+
+  The user will be asked to confirm his intension to quit the program
+
+                      ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+                      ³                       ³
+                      ³  Terminate program ?  ³
+                      ³                       ³
+                      ³                       ³
+                      ³     ÉÍÍÍ»   ÚÄÄ¿      ³
+                      ³     ºYesº   ³No³      ³
+                      ³     ÈÍÍÍ¼   ÀÄÄÙ      ³
+                      ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+
+:sys_sys
+^SYSTEM
+
+  With this item a number of navigation systems and their parameters can
+  be changed:
+
+  This is an example for e.g. Micro-Fix:
+
+             ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+             ³System       Micro-Fix               ³
+             ³Format       Compressed              ³
+             ³Channel      1                       ³
+             ³Baudrate     9600                    ³
+             ³Databits     8                       ³
+             ³Parity       N                       ³
+             ³Stopbits     1                       ³
+             ³Handshake    N                       ³
+             ³Frequencies                          ³
+             ³Patterns      1  2  3  4  0  0  0  0 ³
+             ³Interval     1.000000                ³
+             ³Special                              ³
+             ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+
+
+:patterns
+
+  Depending on the maximum number of patterns a system can generate,
+  the user can change the pattern by the following menu.
+
+                 ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+                 ³                   ³
+                 ³  pattern  1:   1  ³
+                 ³  pattern  2:   2  ³
+                 ³  pattern  3:   3  ³
+                 ³  pattern  4:   4  ³
+                 ³                   ³
+                 ³                   ³
+                 ³   ÉÍÍ»   ÚÄÄÄÄ¿   ³
+                 ³   ºOkº   ³Edit³   ³
+                 ³   ÈÍÍ¼   ÀÄÄÄÄÙ   ³
+                 ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+
+  N.B. Syledis will give another pattern selection menu.
+       See ~Syledis patterns~
+
+:MICRO-FIX :Micro-Fix
+^MICRO-FIX
+
+  Formats available for Micro-Fix are:
+
+  ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+  ³ 1   Type 540       ³
+  ³ 2   Type 600       ³
+  ³ 3   Compressed     ³
+  ³ 4   540 Guidance   ³
+  ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+
+  For the output description: See your Micro-Fix manual.
+
+  Up to 8 patterns can be defined for this system.
+
+
+:Trisponder
+^TRISPONDER
+
+  Formats available for Trisponder are:
+
+  ÚÄÄÄÄÄÄÄÄÄÄ¿
+  ³ 1   A4   ³
+  ³ 2   A5   ³
+  ÀÄÄÄÄÄÄÄÄÄÄÙ
+
+  For the output description: See your Trisponder manual.
+
+  Up to 4 patterns can be defined for this system.
+
+:Hyper-Fix
+^HYPER-FIX
+
+  The hyperfix will be generation patterns for F1 and F2, depending
+  on the frequencies given by the user.
+
+  The ambigity resolution has an fixed value of zero's.
+  i.e.  "0000 0000 0000 0000 0000 0000".
+
+  We assume a lock on a frequency if there is a pattern pair defined and a
+  frequency is available.
+
+  Every 8 outputs, the lockflags will be forced '111' as is done in Hyper-Fix,
+  when the 'Sequence Number' is showed on it's LCD display.
+
+:Echotrac
+^ECHOTRAC
+
+  ODOM echotrac simulation has 4 output formats:
+
+  ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+  ³ 1   Default    ³
+  ³ 2   Low        ³
+  ³ 3   High       ³
+  ³ 4   High/Low   ³
+  ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+
+  The fixed user identifier is "ET"
+
+  Special key's are:
+
+  '+' Increase depth with 1 dm.
+  '-' Decrease depth with 1 dm.
+  '*' Simulate manual fix. This will be reset each update.
+  'A' Toggle alarm status.
+  'C' Toggle between output in dm of cm. With output in dm. the user
+      identifier will be in capital characters ("ET"), with output in cm
+      it will be in small characters ("et").
+
+:Polartrack :Navitrack 2000
+^POLARTRACK / Navitrack 2000
+
+  ÚÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+  ³ 1   Short   ³
+  ³ 2   Long    ³
+  ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+
+  The Navitrack 2000 (polartrack) has 2 output formats: LONG and SHORT.
+
+  Standard serial parameters are 1200/7/N/1.
+
+  Special keys are:
+
+  '+' Increase vertical angle with 0.1 degree.
+  '_' Decrease vertical angle with 0.1 degree.
+  'B' Toggle battery status (1..4)
+  'C' Toggle contact status (contact / no contact)
+  'M' Toggle mode: Measure/Track/Search/Off
+  'T' Toggle temperature status (1..5)
+
+:Artemis
+^ARTEMIS
+
+  Available Artemis outputs are:
+
+  ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+  ³ 1   ASCII 16             ³
+  ³ 2   ASCII 17             ³
+  ³ 3   BCD (0.01)           ³
+  ³ 4   BCD (0.001)          ³
+  ³ 5   BCD (0.001) + ADB    ³
+  ³ 6   Telegram (Mark IV)   ³
+  ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+
+  For the output description: See your Artemis manual.
+
+
+:Syledis
+^SYLEDIS
+
+  Syledis formats can be entered just like specifying the output
+  formats on the syledis:
+
+  ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+  ³  0 Nil            10 6 blanks      20 Event counter 1    ³
+  ³  1 Lat/Y          11 Distance 1    21 Event counter 2    ³
+  ³  2 Long/X         12 Distance 2    22 -                  ³
+  ³  3 T8 ouput       13 Distance 3    23 -                  ³
+  ³  4 T56P output    14 Distance 4    24 -                  ³
+  ³  5 L/R            15 Distance 5    25 -                  ³
+  ³  6 Faults         16 Distance 6    26 -                  ³
+  ³  7 Course,speed   17 Distance 7    27 -                  ³
+  ³  8 Quality        18 Distance 8    28 T8 special output  ³
+  ³  9 Date,time      19 Delay         29 CR/LF              ³
+  ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+
+  Remember that output in lat/long (message 01 and 02) will only be
+  given if lat/long simulation mode is choosen ('L' key). Otherwise
+  the output will be in UTM.
+
+:Falcon
+^FALCON
+
+  Available output formats are:
+
+  ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+  ³ 1   Remote XY       ³
+  ³ 2   Remote ranges   ³
+  ³ 3   Print  XY       ³
+  ³ 4   Print  ranges   ³
+  ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+
+  For a complete description of these formats: see your FALCON manual
+
+:NMEA_0183 :Decca
+^NMEA 0183 / Decca output
+
+  The 'format' item for this system will pop-up the following menu:
+
+  ÚÄÄÄÄÄÄÄÄÄÄÄÄ¿
+  ³Talker   II ³  ---> Talker identifier like in '$IIGLL' for Decca MK-53
+  ³   3D    OFF³  ---> Lat/long output in 3 decimals
+  ³   GLL   ON ³  ---> GLL message ON/OFF
+  ³   VHW   ON ³  ---> VHW message ON/OFF
+  ³   SLL   ON ³  ---> SLL message ON/OFF
+  ³   ZZU   ON ³  ---> ZZU message ON/OFF
+  ³   GGA   OFF³  ---> GGA message ON/OFF
+  ³   VTG   OFF³  ---> VTG message ON/OFF
+  ÀÄÄÄÄÄÄÄÄÄÄÄÄÙ
+
+  By default the output is configured like the output of a Decca MK-53.
+
+:NR_53_103
+^SERCEL NR53 / NR103 GPS RECEIVER
+
+  The available output formats are:
+
+  ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+  ³ 1   A1...A4   ³
+  ³ 2   A5        ³
+  ³ 3   B6        ³
+  ³ 4   B7        ³
+  ³ 5   B8        ³
+  ³ 6   B9        ³
+  ³ 7   B10       ³
+  ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+
+  For a complete description: see your SERCEL manual
+
+:Radar-Fix
+^RADAR-FIX
+
+  The available output formats are:
+
+  ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+  ³ 1   Message B   ³
+  ³ 2   Message C   ³
+  ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+
+  For a complete description: see your RADAR-FIX manual
+
+:Pulse8
+^PULSE 8
+
+  The available output formats are:
+
+  ÚÄÄÄÄÄÄÄÄÄÄÄÄ¿
+  ³ 1   MK 4   ³
+  ³ 2   MK 6   ³
+  ³ 3   MK 7   ³
+  ³ 4   MON    ³
+  ÀÄÄÄÄÄÄÄÄÄÄÄÄÙ
+
+  For a complete description: see your PULSE-8 manual
+
+  At this moment, only static output messages are available.
+
+:UCM_40
+^UCM 40
+
+  Sorry, no information available at this moment...
+
+:Trimble :TRIMBLE
+^TRIMBLE
+
+  Only default output is available
+
+:Deso 25 :Deso_25
+^DESO 25
+
+  Output:
+
+  Depth of channel 1 (DA)
+  Depth of channel 2 (DB) (channel 1 +/- diff)
+  Bottom target strength(BC)
+
+  special keys:
+
+  'M'     : output dimension is in meters.
+  'F'     : output dimension is in feet.
+  '0'..'9': Set Bottom target strength.
+
+:printer
+^PRINTER
+
+  The output of the simulation can be printed on a parallel printer.
+  This output can be toggled in the pulldown menu (OUTPUT) or by a
+  single keystroke ('P').
+
+
+:Mode
+
+  With this item, the colors will be changed to colors for a
+  color display or to colors for a monochrome display
+
+:baudrate
+^BAUDRATE
+
+  Choose a baudrate by hotkey or by arrow keys and 'ENTER'
+
+  ÚÄÄÄÄÄÄÄÄÄ¿
+  ³    300  ³
+  ³    600  ³
+  ³   1200  ³
+  ³   2400  ³
+  ³   4800  ³
+  ³   9600  ³
+  ³  19200  ³
+  ÀÄÄÄÄÄÄÄÄÄÙ
+
+:databits
+^DATABITS
+
+  Choose number of databits by hotkey or by arrow keys and 'ENTER'
+  ÚÄÄÄÄÄÄ¿
+  ³   7  ³
+  ³   8  ³
+  ÀÄÄÄÄÄÄÙ
+
+:stopbits
+^STOPBITS
+
+  Choose number of stopbits by hotkey or by arrow keys and 'ENTER'
+  ÚÄÄÄÄÄÄ¿
+  ³   1  ³
+  ³   2  ³
+  ÀÄÄÄÄÄÄÙ
+
+:parity
+^PARITY
+
+  Choose parity by hotkey or by arrow keys and 'ENTER'
+
+  ÚÄÄÄÄÄÄÄÄÄÄ¿
+  ³   None   ³
+  ³   Odd    ³
+  ³   Even   ³
+  ÀÄÄÄÄÄÄÄÄÄÄÙ
+
+:handshake
+^HANDSHAKE
+
+  Choose handshake by hotkey or by arrow keys and 'ENTER'
+
+  ÚÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+  ³   None      ³  --> No handshake at all.
+  ³   Xon/Xoff  ³  --> XON/XOFF software handshake.
+  ³   DSR/CTS   ³  --> DSR/CTS hardware handshake.
+  ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+
+:channel
+^CHANNEL
+
+  Here the channel number can be given.
+
+  Without a multi-serial card the following channel layout is available:
+
+  1 = COM1:
+  2 = COM2:
+
+  If a multi-serial card is used, COM2: will not be available anymore.
+
+  The following channel layout is available:
+
+  1 = COM1:
+  2 = 1st channel
+  3 = 2nd channel
+  4 = 3rd channel
+    etc.
+
+:end_of_file
